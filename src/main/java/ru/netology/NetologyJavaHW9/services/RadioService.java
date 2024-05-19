@@ -28,158 +28,107 @@ public class RadioService {
         return nextStation;
     }
 
-        public int getPrevStation() {
-            return prevStation;
-        }
-
-            public void setMaxStation ( int maxStation){
-                this.maxStation = maxStation;
-            }
-
-            public void setMinStation ( int minStation){
-                this.minStation = minStation;
-            }
-
-            public void setNextStation ( int newNextStation){
-                if (currentStation < maxStation) {
-                    newNextStation = currentStation + 1;
-                }
-                this.nextStation = newNextStation;
-            }
-
-            public void setPrevStation ( int newPrevStation){
-                if (currentStation == maxStation) {
-                    newPrevStation = currentStation - 1;
-                }
-                this.prevStation = newPrevStation;
-            }
-
-            public void setCurrentStation ( int CurrentStation){
-                if (currentStation < maxStation) {
-                    nextStation = currentStation + 1;
-                }
-
-                if (currentStation == maxStation) {
-                    prevStation = currentStation - 1;
-                }
-                {
-                    this.currentStation = CurrentStation;
-                }
-            }
-
-            public int getCurrentVolume () {
-                return currentVolume;
-            }
-
-            public int getMaxVolume () {
-                return maxVolume;
-            }
-
-            public int getMinVolume () {
-                return minVolume;
-            }
-
-            public int getIncreasedVolume () {
-                return increasedVolume;
-            }
-
-            public int getDecreasedVolume () {
-                return decreasedVolume;
-            }
-
-            public void setCurrentVolume ( int newCurrentVolume){
-                if (currentVolume > maxVolume) {
-                    return;
-                }
-                if (currentVolume < minVolume) {
-                    return;
-                }
-                this.currentVolume = newCurrentVolume;
-            }
-
-            public void setMaxVolume ( int newMaxVolume){
-                if (currentVolume == newMaxVolume) {
-                    return;
-                }
-                this.maxVolume = newMaxVolume;
-            }
-
-            public void setMinVolume ( int newMinVolume){
-                if (currentVolume == newMinVolume) {
-                    return;
-                }
-                this.minVolume = newMinVolume;
-            }
-
-            public void setIncreasedVolume ( int newIncreasedVolume){
-                if (currentVolume < maxVolume) {
-                    newIncreasedVolume = currentVolume + 1;
-                }
-                this.increasedVolume = newIncreasedVolume;
-            }
-
-            public void setDecreasedVolume ( int newDecreasedVolume){
-                if (currentVolume == maxVolume) {
-                    newDecreasedVolume = currentVolume - 1;
-                }
-                this.decreasedVolume = newDecreasedVolume;
-            }
-        }
-
-
-    /* public void changeStation() {
-
-            if (currentStation < maxStation) {
-               nextStation = currentStation + 1;
-           }
-         }
-         {
-           if (currentStation == maxStation) {
-               prevStation = currentStation - 1;
-           }
+    public int getPrevStation() {
+        return prevStation;
     }
 
-    public int stationIsGoingRoundIfMax() {
-        if (currentStation > maxStation) {
-            return minStation;
-        }
-        return minStation;
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
     }
 
-    public int stationIsGoingRoundIfMin() {
-        if (currentStation < minStation) {
-            return maxStation;
-        }
-        return maxStation;
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
     }
 
+    public void setNextStation(int newNextStation) {
+        if (currentStation < maxStation) {
+            newNextStation = currentStation + 1;
+        }
+        if (currentStation >= minStation) {
+            newNextStation = currentStation + 1;
+        }
+        this.nextStation = newNextStation;
     }
 
-    public int StationIsGoingRoundIfMin() {
-       if (currentStation < minStation) {
-            return maxStation;
+    public void setPrevStation(int newPrevStation) {
+        if (currentStation <= maxStation) {
+            newPrevStation = currentStation - 1;
         }
-        return maxStation;
+        prevStation = newPrevStation;
     }
 
 
-    public void changeVolume() {
+    public void setCurrentStation(int newCurrentStation) {
+        if (currentStation < maxStation) {
+            nextStation = currentStation + 1;
+        }
+
+        if (currentStation == maxStation) {
+            prevStation = currentStation - 1;
+        }
+        {
+            currentStation = newCurrentStation;
+        }
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public int getIncreasedVolume() {
+        return increasedVolume;
+    }
+
+    public int getDecreasedVolume() {
+        return decreasedVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume == maxVolume) {
+            return;
+        }
+        if (currentVolume == minVolume) {
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        if (currentVolume > maxVolume) {
+            return;
+        }
+        this.maxVolume = maxVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        if (currentVolume <= minVolume) {
+            return;
+        }
+        this.currentVolume = minVolume;
+    }
+
+    public void setIncreasedVolume(int increasedVolume) {
         if (currentVolume < maxVolume) {
             increasedVolume = currentVolume + 1;
         }
-
-        if (currentVolume == maxVolume) {
-            decreasedVolume = currentVolume - 1;
-        }
+        this.increasedVolume = increasedVolume;
     }
 
-    public void volumeMargin(int currentVolume, int maxVolume, int minVolume) {
-       if (currentVolume == maxVolume) {
-            return;
+    public void setDecreasedVolume(int decreasedVolume) {
+        if (currentVolume >= maxVolume) {
+            decreasedVolume = currentVolume - 1;
         }
+        this.decreasedVolume = decreasedVolume;
+    }
+}
 
-        if (currentVolume == minVolume) {
-           return;
- */
 
 
