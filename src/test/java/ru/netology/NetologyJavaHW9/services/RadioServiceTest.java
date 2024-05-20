@@ -50,10 +50,10 @@ public class RadioServiceTest {
     public void shouldChangeToNextStation() {
         RadioService service = new RadioService();
 
-        service.setCurrentStation(6);
-        service.setNextStation(7);
+        service.setNextStation(8);
+        service.setCurrentStation(7);
 
-        int expected = 7;
+        int expected = 8;
         int actual = service.getNextStation();
 
         Assertions.assertEquals(expected, actual);
@@ -224,11 +224,27 @@ public class RadioServiceTest {
 
     @Test
 
-    public void shouldChangeVolumeUp() {
+    public void shouldIncreaseVolume() {
         RadioService service = new RadioService();
 
         service.setMaxVolume(100);
-        service.setCurrentVolume(99);
+        service.setCurrentVolume(45);
+        service.setIncreasedVolume(46);
+
+        int expected = 46;
+        int actual = service.getIncreasedVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+
+    public void shouldNotIncreaseVolumeIfMoreThanMax() {
+        RadioService service = new RadioService();
+
+        service.setMaxVolume(100);
+        service.setCurrentVolume(101);
         service.setIncreasedVolume(100);
 
         int expected = 100;
@@ -240,7 +256,7 @@ public class RadioServiceTest {
 
     @Test
 
-    public void shouldChangeVolumeDown() {
+    public void shouldDecreaseVolume() {
         RadioService service = new RadioService();
 
         service.setMaxVolume(100);
@@ -300,7 +316,7 @@ public class RadioServiceTest {
 
     }
 
-    @Test
+   @Test
 
     public void shouldChangeVolumeToMinIfMin() {
         RadioService service = new RadioService();
@@ -333,22 +349,7 @@ public class RadioServiceTest {
 
     @Test
 
-    public void shouldChangeVolumeToMaxIfMax() {
-        RadioService service = new RadioService();
-
-        service.setCurrentVolume(100);
-        service.setMaxVolume(100);
-
-        int expected = 100;
-        int actual = service.getMaxVolume();
-
-        Assertions.assertEquals(expected, actual);
-
-    }
-
-    @Test
-
-    public void shouldChangeVolumeToMaxIfOverMax() {
+    public void shouldNotChangeVolumeToMaxIfOverMax() {
         RadioService service = new RadioService();
 
         service.setCurrentVolume(101);
