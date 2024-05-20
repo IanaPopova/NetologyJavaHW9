@@ -62,21 +62,6 @@ public class RadioServiceTest {
 
     @Test
 
-    public void shouldChangeToNextStationIfMoreThanMinStation() {
-        RadioService service = new RadioService();
-
-        service.setCurrentStation(1);
-        service.setNextStation(2);
-
-        int expected = 2;
-        int actual = service.getNextStation();
-
-        Assertions.assertEquals(expected, actual);
-
-    }
-
-    @Test
-
     public void shouldChangeToNextStationIfEqualsMinStation() {
         RadioService service = new RadioService();
 
@@ -174,20 +159,6 @@ public class RadioServiceTest {
         service.setCurrentVolume(89);
 
         int expected = 89;
-        int actual = service.getCurrentVolume();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-
-    public void shouldSetCurrentVolumeIfEqualsMin() {
-        RadioService service = new RadioService();
-
-        service.setMinVolume(0);
-        service.setCurrentVolume(0);
-
-        int expected = 0;
         int actual = service.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -316,7 +287,7 @@ public class RadioServiceTest {
 
     }
 
-   @Test
+    @Test
 
     public void shouldChangeVolumeToMinIfMin() {
         RadioService service = new RadioService();

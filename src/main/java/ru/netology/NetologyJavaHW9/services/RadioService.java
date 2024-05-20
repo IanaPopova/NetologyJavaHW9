@@ -47,6 +47,7 @@ public class RadioService {
         nextStation = newNextStation;
 
     }
+
     public void setPrevStation(int newPrevStation) {
         if (currentStation <= maxStation) {
             newPrevStation = currentStation - 1;
@@ -112,18 +113,18 @@ public class RadioService {
         this.minVolume = minVolume;
     }
 
-    public void setIncreasedVolume(int increasedVolume) {
+    public void setIncreasedVolume(int newIncreasedVolume) {
         if (currentVolume <= maxVolume) {
-            increasedVolume = currentVolume + 1;
+            newIncreasedVolume = currentVolume + 1;
         }
-        this.increasedVolume = increasedVolume;
+        increasedVolume = newIncreasedVolume;
     }
 
-    public void setDecreasedVolume(int decreasedVolume) {
+    public void setDecreasedVolume(int newDecreasedVolume) {
         if (currentVolume >= maxVolume) {
             decreasedVolume = currentVolume - 1;
         }
-        this.decreasedVolume = decreasedVolume;
+        decreasedVolume = newDecreasedVolume;
     }
 }
 
