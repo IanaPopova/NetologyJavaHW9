@@ -2,8 +2,8 @@ package ru.netology.NetologyJavaHW9.services;
 
 public class RadioService {
     public int currentStation;
-    public int maxStation;
-    public int minStation;
+    public int maxStation = 9;
+    public int minStation = 0;
     public int nextStation;
     public int prevStation;
     public int currentVolume;
@@ -11,6 +11,15 @@ public class RadioService {
     public int minVolume;
     public int increasedVolume;
     public int decreasedVolume;
+
+    public RadioService(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public RadioService() {
+
+    }
+
 
     public int getCurrentStation() {
         return currentStation;
@@ -32,29 +41,13 @@ public class RadioService {
         return prevStation;
     }
 
-    public void setMaxStation(int maxStation) {
+    /*public void setMaxStation(int maxStation) {
         this.maxStation = maxStation;
     }
 
     public void setMinStation(int minStation) {
         this.minStation = minStation;
-    }
-
-    public void setNextStation(int newNextStation) {
-        if (currentStation < maxStation) {
-            newNextStation = currentStation + 1;
-        }
-        nextStation = newNextStation;
-
-    }
-
-    public void setPrevStation(int newPrevStation) {
-        if (currentStation <= maxStation) {
-            newPrevStation = currentStation - 1;
-        }
-        prevStation = newPrevStation;
-    }
-
+    }*/
 
     public void setCurrentStation(int newCurrentStation) {
         if (currentStation < maxStation) {
@@ -68,6 +61,22 @@ public class RadioService {
             currentStation = newCurrentStation;
         }
     }
+
+    public void setNextStation(int newNextStation) {
+        if (currentStation < maxStation) {
+            newNextStation = currentStation + 1;
+        }
+        nextStation = newNextStation;
+
+    }
+
+    public void setPrevStation(int newPrevStation) {
+        if (currentStation > minStation) {
+            newPrevStation = currentStation - 1;
+        }
+        prevStation = newPrevStation;
+    }
+
 
     public int getCurrentVolume() {
         return currentVolume;
