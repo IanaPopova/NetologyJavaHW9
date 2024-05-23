@@ -28,17 +28,13 @@ public class RadioService {
     }
 
     public void setToIncreasedVolume() {
-        if (currentVolume < 100) {
-            int inc = currentVolume + 1;
-            setCurrentVolume(inc);
-        }
+        int inc = currentVolume + 1;
+        setCurrentVolume(inc);
     }
 
     public void setToDecreasedVolume() {
-        if (currentVolume > 0) {
-            int dec = currentVolume - 1;
-            setCurrentVolume(dec);
-        }
+        int dec = currentVolume - 1;
+        setCurrentVolume(dec);
     }
 
     public int getCurrentStation() {
@@ -66,23 +62,19 @@ public class RadioService {
     }
 
     public void setToNextStation() {
-        int next = currentStation + 1;
-        setCurrentStation(next);
-    }
-
-    public void setToPrevStation() {
-        int prev = currentStation - 1;
-        setCurrentStation(prev);
-    }
-
-    public void setMinStationIfAboveMax() {
-        if (currentStation > 9) {
+        if (currentStation < 9) {
+            int next = currentStation + 1;
+            setCurrentStation(next);
+        } else {
             this.currentStation = 0;
         }
     }
 
-    public void setMaxStationIfBelowMin() {
-        if (currentStation < 0) {
+    public void setToPrevStation() {
+        if (currentStation > 0) {
+            int prev = currentStation - 1;
+            setCurrentStation(prev);
+        } else {
             this.currentStation = 9;
         }
     }

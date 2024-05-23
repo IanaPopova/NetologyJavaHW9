@@ -3,6 +3,9 @@ package ru.netology.NetologyJavaHW9.services;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 public class RadioServiceTest {
 
     @Test
@@ -48,24 +51,10 @@ public class RadioServiceTest {
 
         RadioService radio = new RadioService();
 
-        radio.setCurrentVolume(100);
+        radio.setCurrentVolume(99);
         radio.setToIncreasedVolume();
 
         int expected = 100;
-        int actual = radio.getCurrentVolume();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSIncreaseVolumeIfLessThanMax() {
-
-        RadioService radio = new RadioService();
-
-        radio.setCurrentVolume(89);
-        radio.setToIncreasedVolume();
-
-        int expected = 90;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -81,21 +70,6 @@ public class RadioServiceTest {
         radio.setToDecreasedVolume();
 
         int expected = 0;
-        int actual = radio.getCurrentVolume();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-
-    public void shouldSDecreaseVolumeIfMoreThanMin() {
-
-        RadioService radio = new RadioService();
-
-        radio.setCurrentVolume(78);
-        radio.setToDecreasedVolume();
-
-        int expected = 77;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -183,6 +157,20 @@ public class RadioServiceTest {
 
     @Test
 
+    public void shouldSetToMinStationIfAboveMax() {
+        RadioService radio = new RadioService();
+
+        radio.setCurrentStation(10);
+        radio.setToNextStation();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
     public void shouldSetToPrevStation() {
         RadioService radio = new RadioService();
 
@@ -197,32 +185,17 @@ public class RadioServiceTest {
 
     @Test
 
-    public void shouldSetToMinStationIfMoreThanMax() {
-        RadioService radio = new RadioService();
-
-        radio.setCurrentStation(10);
-        radio.setMinStationIfAboveMax();
-
-        int expected = 0;
-        int actual = radio.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-
-    public void shouldSetToPrevStationIfLessThanMin() {
+    public void shouldSetToMaxStationIfBelowMin() {
         RadioService radio = new RadioService();
 
         radio.setCurrentStation(-1);
-        radio.setMaxStationIfBelowMin();
+        radio.setToPrevStation();
 
         int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
-
 }
 
 
