@@ -1,130 +1,90 @@
 package ru.netology.NetologyJavaHW9.services;
 
 public class RadioService {
-    public int currentStation;
-    public int maxStation;
-    public int minStation;
-    public int nextStation;
-    public int prevStation;
-    public int currentVolume;
-    public int maxVolume;
-    public int minVolume;
-    public int increasedVolume;
-    public int decreasedVolume;
+    private int currentVolume;
+    private int currentStation;
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public int getNextStation() {
-        return nextStation;
-    }
-
-    public int getPrevStation() {
-        return prevStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
-
-    public void setNextStation(int newNextStation) {
-        if (currentStation < maxStation) {
-            newNextStation = currentStation + 1;
-        }
-        nextStation = newNextStation;
-
-    }
-
-    public void setPrevStation(int newPrevStation) {
-        if (currentStation <= maxStation) {
-            newPrevStation = currentStation - 1;
-        }
-        prevStation = newPrevStation;
-    }
-
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (currentStation < maxStation) {
-            nextStation = currentStation + 1;
-        }
-
-        if (currentStation == maxStation) {
-            prevStation = currentStation - 1;
-        }
-        {
-            currentStation = newCurrentStation;
-        }
-    }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getIncreasedVolume() {
-        return increasedVolume;
-    }
-
-    public int getDecreasedVolume() {
-        return decreasedVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume == maxVolume) {
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
             return;
         }
-        if (currentVolume == minVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
-        this.currentVolume = currentVolume;
+        currentVolume = newCurrentVolume;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        if (currentVolume > maxVolume) {
-            return;
-        }
-        this.maxVolume = maxVolume;
+    public void setToMaxVolume() {
+        currentVolume = 100;
     }
 
-    public void setMinVolume(int minVolume) {
-        if (currentVolume < minVolume) {
-            return;
-        }
-        this.minVolume = minVolume;
+    public void setToMinVolume() {
+        currentVolume = 0;
     }
 
-    public void setIncreasedVolume(int newIncreasedVolume) {
-        if (currentVolume <= maxVolume) {
-            newIncreasedVolume = currentVolume + 1;
+    public void setToIncreasedVolume() {
+        if (currentVolume < 100) {
+            int inc = currentVolume + 1;
+            setCurrentVolume(inc);
         }
-        increasedVolume = newIncreasedVolume;
     }
 
-    public void setDecreasedVolume(int newDecreasedVolume) {
-        if (currentVolume >= maxVolume) {
-            decreasedVolume = currentVolume - 1;
+    public void setToDecreasedVolume() {
+        if (currentVolume > 0) {
+            int dec = currentVolume - 1;
+            setCurrentVolume(dec);
         }
-        decreasedVolume = newDecreasedVolume;
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public void setCurrentStation(int newCurrentStation) {
+        currentStation = newCurrentStation;
+    }
+
+    public void setToMaxStation() {
+        currentStation = 9;
+    }
+
+    public int getMaxStation() {
+        return currentStation = 9;
+    }
+
+    public void setToMinStation() {
+        currentStation = 0;
+    }
+
+    public int getMinStation() {
+        return currentStation = 0;
+    }
+
+    public void setToNextStation() {
+        int next = currentStation + 1;
+        setCurrentStation(next);
+    }
+
+    public void setToPrevStation() {
+        int prev = currentStation - 1;
+        setCurrentStation(prev);
+    }
+
+    public void setMinStationIfAboveMax() {
+        if (currentStation > 9) {
+            this.currentStation = 0;
+        }
+    }
+
+    public void setMaxStationIfBelowMin() {
+        if (currentStation < 0) {
+            this.currentStation = 9;
+        }
     }
 }
 
