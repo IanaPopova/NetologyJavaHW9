@@ -1,141 +1,92 @@
 package ru.netology.NetologyJavaHW9.services;
 
 public class RadioService {
-    public int currentStation;
-    public int maxStation = 9;
-    public int minStation = 0;
-    public int nextStation;
-    public int prevStation;
-    public int currentVolume;
-    public int maxVolume;
-    public int minVolume;
-    public int increasedVolume;
-    public int decreasedVolume;
+    private int currentVolume;
+    private int currentStation;
+    private int maxStation;
+    private int minStation;
 
-    public RadioService(int maxStation) {
+    public RadioService(int maxStation, int minStation) {
         this.maxStation = maxStation;
+        this.minStation = minStation;
     }
 
     public RadioService() {
+        maxStation = 9;
+    }
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    public void setToMaxVolume() {
+        currentVolume = 100;
     }
 
 
+    public void setToMinVolume() {
+        currentVolume = 0;
+    }
+
+    public void setToIncreasedVolume() {
+        int inc = currentVolume + 1;
+        setCurrentVolume(inc);
+    }
+
+    public void setToDecreasedVolume() {
+        int dec = currentVolume - 1;
+        setCurrentVolume(dec);
+    }
+
     public int getCurrentStation() {
         return currentStation;
+    }
+
+    public void setCurrentStation(int newCurrentStation) {
+        currentStation = newCurrentStation;
+    }
+
+    public void setToMaxStation() {
+        currentStation = maxStation;
     }
 
     public int getMaxStation() {
         return maxStation;
     }
 
+    public void setToMinStation() {
+        currentStation = minStation;
+    }
+
     public int getMinStation() {
         return minStation;
     }
 
-    public int getNextStation() {
-        return nextStation;
-    }
-
-    public int getPrevStation() {
-        return prevStation;
-    }
-
-    /*public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }*/
-
-    public void setCurrentStation(int newCurrentStation) {
+    public void setToNextStation() {
         if (currentStation < maxStation) {
-            nextStation = currentStation + 1;
-        }
-
-        if (currentStation == maxStation) {
-            prevStation = currentStation - 1;
-        }
-        {
-            currentStation = newCurrentStation;
+            int next = currentStation + 1;
+            setCurrentStation(next);
+        } else {
+            this.currentStation = minStation;
         }
     }
 
-    public void setNextStation(int newNextStation) {
-        if (currentStation < maxStation) {
-            newNextStation = currentStation + 1;
-        }
-        nextStation = newNextStation;
-
-    }
-
-    public void setPrevStation(int newPrevStation) {
+    public void setToPrevStation() {
         if (currentStation > minStation) {
-            newPrevStation = currentStation - 1;
+            int prev = currentStation - 1;
+            setCurrentStation(prev);
+        } else {
+            this.currentStation = maxStation;
         }
-        prevStation = newPrevStation;
-    }
-
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getIncreasedVolume() {
-        return increasedVolume;
-    }
-
-    public int getDecreasedVolume() {
-        return decreasedVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume == maxVolume) {
-            return;
-        }
-        if (currentVolume == minVolume) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        if (currentVolume > maxVolume) {
-            return;
-        }
-        this.maxVolume = maxVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        if (currentVolume < minVolume) {
-            return;
-        }
-        this.minVolume = minVolume;
-    }
-
-    public void setIncreasedVolume(int newIncreasedVolume) {
-        if (currentVolume <= maxVolume) {
-            newIncreasedVolume = currentVolume + 1;
-        }
-        increasedVolume = newIncreasedVolume;
-    }
-
-    public void setDecreasedVolume(int newDecreasedVolume) {
-        if (currentVolume >= maxVolume) {
-            decreasedVolume = currentVolume - 1;
-        }
-        decreasedVolume = newDecreasedVolume;
     }
 }
-
-
-
