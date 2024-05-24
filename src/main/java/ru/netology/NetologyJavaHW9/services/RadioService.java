@@ -6,8 +6,8 @@ public class RadioService {
     private int maxStation = 9;
     private int minStation = 0;
 
-    public RadioService(int maxStation) {
-        this.maxStation = maxStation;
+    public RadioService(int numberOfStations) {
+        numberOfStations = 10;
     }
 
     public RadioService() {

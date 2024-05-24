@@ -14,14 +14,14 @@ public class RadioServiceTest {
 
     @Test
     public void amountOfStations() {
-        RadioService radio = new RadioService(9);
+        RadioService radio = new RadioService(10);
 
         Assertions.assertEquals(9, radio.getMaxStation());
     }
 
     @Test
     public void settingOriginStations() {
-        RadioService radio = new RadioService(9);
+        RadioService radio = new RadioService(10);
 
         Assertions.assertEquals(9, radio.getMaxStation());
     }
