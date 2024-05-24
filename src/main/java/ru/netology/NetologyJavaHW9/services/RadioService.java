@@ -3,7 +3,7 @@ package ru.netology.NetologyJavaHW9.services;
 public class RadioService {
     private int currentVolume;
     private int currentStation;
-    private int maxStation;
+    private int maxStation = 9;
     private int minStation = 0;
 
     public RadioService(int maxStation) {

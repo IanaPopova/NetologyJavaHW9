@@ -128,7 +128,7 @@ public class RadioServiceTest {
         radio.setToMinStation();
 
         int expected = 0;
-        int actual = radio.getCurrentStation();
+        int actual = radio.getMinStation();
 
         Assertions.assertEquals(expected, actual);
 
