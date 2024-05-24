@@ -42,15 +42,14 @@ public class RadioService {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-            if (newCurrentStation < 0) {
-                this.currentStation = 9;
-            }
-            if (newCurrentStation > 9) {
-                this.currentStation = 0;
-            }
-            currentStation = newCurrentStation;
+        if (newCurrentStation < 0) {
+            this.currentStation = 9;
         }
-
+        if (newCurrentStation > 9) {
+            this.currentStation = 0;
+        }
+        currentStation = newCurrentStation;
+    }
 
     public void setToMaxStation() {
         currentStation = 9;
