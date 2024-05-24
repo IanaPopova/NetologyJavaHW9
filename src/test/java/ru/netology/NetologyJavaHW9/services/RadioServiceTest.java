@@ -3,14 +3,11 @@ package ru.netology.NetologyJavaHW9.services;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class RadioServiceTest {
+    RadioService radio = new RadioService();
 
     @Test
     public void shouldSetCurrentVolume() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentVolume(68);
 
@@ -22,7 +19,6 @@ public class RadioServiceTest {
 
     @Test
     public void shouldSetVolumeToMax() {
-        RadioService radio = new RadioService();
 
         radio.setToMaxVolume();
 
@@ -35,7 +31,6 @@ public class RadioServiceTest {
 
     @Test
     public void shouldSetVolumeToMin() {
-        RadioService radio = new RadioService();
 
         radio.setToMinVolume();
 
@@ -48,8 +43,6 @@ public class RadioServiceTest {
 
     @Test
     public void shouldSIncreaseVolume() {
-
-        RadioService radio = new RadioService();
 
         radio.setCurrentVolume(99);
         radio.setToIncreasedVolume();
@@ -64,8 +57,6 @@ public class RadioServiceTest {
 
     public void shouldSDecreaseVolume() {
 
-        RadioService radio = new RadioService();
-
         radio.setCurrentVolume(1);
         radio.setToDecreasedVolume();
 
@@ -78,7 +69,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldNotSetVolumeAboveMax() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentVolume(102);
 
@@ -91,7 +81,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldNotSetVolumeBelowMin() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentVolume(-3);
 
@@ -103,7 +92,6 @@ public class RadioServiceTest {
 
     @Test
     public void shouldSetCurrentStation() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentStation(7);
 
@@ -117,7 +105,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToMaxStation() {
-        RadioService radio = new RadioService();
 
         radio.setToMaxStation();
 
@@ -130,7 +117,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToMinStation() {
-        RadioService radio = new RadioService();
 
         radio.setToMinStation();
 
@@ -144,7 +130,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToNextStation() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentStation(8);
         radio.setToNextStation();
@@ -158,7 +143,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToMinStationIfAboveMax() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentStation(10);
         radio.setToNextStation();
@@ -172,7 +156,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToPrevStation() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentStation(1);
         radio.setToPrevStation();
@@ -186,7 +169,6 @@ public class RadioServiceTest {
     @Test
 
     public void shouldSetToMaxStationIfBelowMin() {
-        RadioService radio = new RadioService();
 
         radio.setCurrentStation(-1);
         radio.setToPrevStation();
