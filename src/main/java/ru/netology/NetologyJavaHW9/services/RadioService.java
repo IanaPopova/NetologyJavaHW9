@@ -4,11 +4,10 @@ public class RadioService {
     private int currentVolume;
     private int currentStation;
     private int maxStation;
-    private int minStation;
+    private int minStation = 0;
 
-    public RadioService(int maxStation, int minStation) {
+    public RadioService(int maxStation) {
         this.maxStation = maxStation;
-        this.minStation = minStation;
     }
 
     public RadioService() {
