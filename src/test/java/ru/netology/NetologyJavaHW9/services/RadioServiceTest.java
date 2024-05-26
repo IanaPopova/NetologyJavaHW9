@@ -13,15 +13,15 @@ public class RadioServiceTest {
     }
 
     @Test
-    public void amountOfStations() {
-        RadioService radio = new RadioService(10);
+    public void shouldSetStationFromConstructor() {
+        RadioService radio = new RadioService(9);
 
         Assertions.assertEquals(9, radio.getMaxStation());
     }
 
     @Test
     public void settingOriginStations() {
-        RadioService radio = new RadioService(10);
+        RadioService radio = new RadioService(9);
 
         Assertions.assertEquals(9, radio.getMaxStation());
     }

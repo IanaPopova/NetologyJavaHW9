@@ -6,8 +6,9 @@ public class RadioService {
     private int maxStation = 9;
     private int minStation = 0;
 
-    public RadioService(int numberOfStations) {
-        numberOfStations = 10;
+    public RadioService(int size) {
+       size = 9;
+       maxStation = size;
     }
 
     public RadioService() {
@@ -52,11 +53,11 @@ public class RadioService {
 
     public void setCurrentStation(int newCurrentStation) {
 
-        if (newCurrentStation < 0) {
-            this.currentStation = 9;
+        if (newCurrentStation < minStation) {
+            this.currentStation = maxStation;
         }
-        if (newCurrentStation > 9) {
-            this.currentStation = 0;
+        if (newCurrentStation > maxStation) {
+            this.currentStation = minStation;
         }
         currentStation = newCurrentStation;
     }
