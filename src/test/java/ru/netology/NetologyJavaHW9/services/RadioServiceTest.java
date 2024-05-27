@@ -4,26 +4,20 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioServiceTest {
-    RadioService radio = new RadioService(9);
+    RadioService radio = new RadioService();
 
     @Test
 
     public void constructorTest() {
-        RadioService radio = new RadioService();
-    }
 
-    @Test
-    public void shouldSetStationFromConstructor() {
-        RadioService radio = new RadioService(9);
+        RadioService radio = new RadioService(20);
 
-        Assertions.assertEquals(9, radio.getMaxStation());
-    }
+        radio.setCurrentStation(17);
 
-    @Test
-    public void settingOriginStations() {
-        RadioService radio = new RadioService(9);
+        int expected = 17;
+        int actual = radio.getCurrentStation();
 
-        Assertions.assertEquals(9, radio.getMaxStation());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test

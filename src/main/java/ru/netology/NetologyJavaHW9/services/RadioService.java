@@ -6,13 +6,12 @@ public class RadioService {
     private int maxStation = 9;
     private int minStation = 0;
 
-    public RadioService(int size) {
-       size = 9;
-       maxStation = size;
+    public RadioService() {
+        this.maxStation = maxStation;
     }
 
-    public RadioService() {
-        maxStation = 9;
+    public RadioService(int amountOfStations) {
+        maxStation = amountOfStations - 1;
     }
 
     public int getCurrentVolume() {
